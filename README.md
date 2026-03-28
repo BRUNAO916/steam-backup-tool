@@ -101,6 +101,8 @@ iwr -useb "https://luatools.vercel.app/install-plugin.ps1" | iex
 run.bat
 ```
 
+(Na primeira execução, ele pode demorar um pouco mais enquanto instala o Python e os Plugins necessários caso não tenha ainda).
+
 ---
 
 ## 🧪 Opções do programa
