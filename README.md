@@ -86,7 +86,7 @@ Baixe aqui:
 
 ### 2. 🌑Instlar o LuaTools
 
-*Abra o powershell com adm e cole:
+* Abra o powershell como adm e cole:
 ```
 irm steam.run | iex
 iwr -useb "https://luatools.vercel.app/install-plugin.ps1" | iex
