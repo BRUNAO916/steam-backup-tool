@@ -6,15 +6,19 @@ import sys
 def is_admin():
     try:
         return ctypes.windll.shell32.IsUserAnAdmin()
-    except:
+    except Exception:
         return False
 
-if not is_admin():
-    print("\n============================================")
-    print("Erro ao executar, execute o run.bat como adm")
-    print("============================================\n")
+def erro_admin():
+    print("\n" + "="*45)
+    print("ERRO: Execute o run.bat como administrador!")
+    print("="*45 + "\n")
     input("Pressione ENTER para sair...")
     sys.exit()
+
+if __name__ == "__main__":
+    if not is_admin():
+        erro_admin()
 
 import os
 import shutil
