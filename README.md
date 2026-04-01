@@ -1,186 +1,143 @@
-# 🚀 Steam-Tools_Backup
-
-Uma ferramenta simples, rápida e eficiente para fazer **backup e restauração dos saves da Steam automaticamente** 💾
-
+# 🚀 SteamVault Backup (LuaTools)
 ---
+Uma ferramenta simples, rápida e eficiente para fazer backup e restauração dos dados da Steam + LuaTools 💾
 
 ## 📌 Sobre o projeto
 
-O **Steam-Tools_Backup** foi criado para facilitar o backup e a recuperação de dados importantes da Steam, como saves, configurações e estatísticas.
+O SteamVault Backup foi criado para preservar com precisão os dados essenciais da Steam, incluindo integração com o LuaTools.
 
 ✔ Ideal para:
 
 * Evitar perda de dados ⚠️
-* Fazer backup antes de formatar o PC 💻
-* Migrar arquivos entre computadores 🔄
-
----
-
-## ✨ Funcionalidades
-
-* 🔍 Detecção automática da Steam
+* Backup antes de formatar o PC 💻
+* Migrar contas entre PCs 🔄
+* Preservar biblioteca modificada via LuaTools 🎮
+* ✨ Funcionalidades
+* 🔍 Detecção automática da Steam (todos os discos)
+* 👤 Suporte a múltiplas contas
 * 📁 Seleção manual da pasta
-* 💾 Backup completo dos arquivos
-* 📦 Geração de arquivo compactado (.rar)
-* 📥 Importação de backup com 1 clique
-* 🔄 Fecha e reabre a Steam automaticamente
+* 💾 Backup limpo (somente dados essenciais)
+* 📦 Compactação opcional (.zip)
+* 📥 Importação automática
+* 🔄 Fecha e reabre a Steam
+* 📊 Barra de progresso
 * 🎨 Interface colorida no terminal
-* ⚡ Execução rápida via `.exe`
-
+* ⚡ Executável .exe
+* 🧠 Como funciona
+* 📤 Backup
 ---
-
-## 🧠 Como funciona
-
-### 📤 Backup
-
-O programa:
-
-1. Localiza a pasta da Steam
-2. Copia os diretórios importantes:
-
-   * `appcache/stats`
-   * `config/stplug-in`
-   * `userdata`
-3. Cria um backup temporário
-4. Compacta tudo em um arquivo
-5. Salva em **Downloads**
-
+O programa copia somente o necessário:
+```
+userdata/            → saves, conquistas, horas, screenshots
+config/stplug-in     → dados do LuaTools
+appcache/stats       → estatísticas da Steam
+```
 ---
+✔ Backup fiel ao funcionamento do Steam Tools (LuaTools)
 
-### 📥 Importar (Restaurar)
-
-1. Selecione a pasta do backup extraído:
-Steam-Tools_Backup_XXXX-XX-XX_XX-XX-XX
+## 📥 Importar (Restaurar)
+Selecione a pasta do backup (ou extraída do .zip)
 
 ✔ O programa automaticamente:
 
 * Fecha a Steam 🔴
-* Restaura os arquivos 📂
-* Abre a Steam novamente 🟢
-
+* Restaura os dados 📂
+* Reabre a Steam 🟢
 ---
-
-## 📂 Estrutura do projeto
 ```
+📂 Estrutura do projeto
 Steam-Tools_Backup/
 │
-├── steambackup.exe   # Executável (uso direto)
-├── project.py        # Código principal
-├── run.bat           # Executar via Python
-├── requirements.txt  # Dependências
-└── README.md         # Documentação
+├── code/
+│   ├── project.py
+│   ├── requirements.txt
+│   ├── run.bat
+│   └── site.url
+│
+├── project.exe
+└── README.md
 ```
-
 ---
-
 ## ✔ Pré-requisitos
+### 🐍Baixe Python
 
-### ⚙️ Instalação
-
-###  1. 🐍Instalar Python 
-
-Baixe aqui:
 👉 https://www.python.org
 
-✔ Marque: **Add Python to PATH**
+✔ Marque: Add Python to PATH
 
-### 2. 🌑Instlar o LuaTools
+⚙️ Instalar LuaTools
 
-* Abra o powershell como adm e cole:
+Abra o PowerShell como administrador e execute:
 ```
 irm steam.run | iex
+```
+* Em seguida:
+```
 iwr -useb "https://luatools.vercel.app/install-plugin.ps1" | iex
 ```
-
 ---
-
 ## ▶️ Como usar
+* 🔥 Método recomendado (.exe)
 
-* Execute como adm:
+Execute:
+```
+project.exe
+```
+
+👉 Clique com botão direito → Executar como administrador
+
+* 🧪 Método com Python
+
+Execute como administrador:
 ```
 run.bat
 ```
-
-(Na primeira execução, ele pode demorar um pouco, pois esta instalando as dependencias necessárias).
-
 ---
-
 ## 🧪 Opções do programa
-
-Ao iniciar, você pode escolher:
-
-### 🔹 1 - Automático
-
-Procura a Steam automaticamente no sistema
-
-### 🔹 2 - Manual
-
-Você digita o caminho da pasta
-Exemplos:
-C:\Program Files (x86)\Steam
-D:\Program Files (x86)\Steam
-
+### 🔹 1 - Backup automático
+Detecta a Steam automaticamente
+### 🔹 2 - Backup manual
+Permite colocar a pasta Steam manualmente
 ### 🔹 3 - Importar backup
-
-* Seleciona a pasta do backup e restaura automaticamente os seus saves
-
-### ⚠ Tambem devera escolher uma das opções de exporte
-
-("1 - Salvar TUDO")
-("2 - Biblioteca + saves + conquistas + horas (sem screenshots)")
-
+Restaura automaticamente os dados
 ---
-
 ## 📦 Resultado
 
-* O seu save estara salvo em downloads disco C:\
-
-Com o nome:
+O backup será salvo em:
 ```
-Steam-Tools_Backup_DATA.rar
+C:\Users\SEU_USUARIO\Downloads
 ```
 
+Nome:
+```
+SteamVault_Backup_DATA.zip
+```
 ---
-
 ## ⚠️ Observações
-
-* ❌ Não selecione o arquivo `.rar` ao importar
-Antes extraia o arquivo com o winrar
-Baixe-o aqui 👉 https://www.win-rar.com/
-* ✅ Selecione a pasta extraída do backup
-* ⚠️ A pasta deve conter `userdata`
-* 🔄 A Steam será fechada automaticamente na restauração
-* 📦 O arquivo `.rar` é na verdade um `.zip` renomeado
-* Alguns caminhos podem variar dependendo da instalação
-
----
-
-## 🛠 Tecnologias utilizadas
-
+* ❌ NÃO selecione o .zip direto
+* ✅ Extraia antes
+* ✅ Selecione a pasta extraída
+* ⚠️ Deve conter userdata
+* 🔄 Steam será fechada automaticamente
+* 💡 Não inclui jogos instalados
+* 🛠 Tecnologias utilizadas
 * Python 🐍
 * colorama 🎨
 * shutil 📦
 * tkinter 🗂️
-
 ---
-
-## 🚀 Futuras melhorias
-
-* Interface gráfica (GUI) 🖥️
-* Barra de progresso 📊
-* Backup automático programado ⏰
-* Seleção automática do backup mais recente 🤖
-
+### 🚀 Futuro
+* Interface gráfica (GUI)
+* Ícone estilo Steam
+* Backup automático
+* Sistema de profiles
 ---
-
 ## 👨‍💻 Autor
 
-Desenvolvido por **Brunao916** 😎🔥
+### Brunao916 😎🔥
 
----
+### ⭐ ApoieSe gostou;
 
-## ⭐ Apoie o projeto
-
-Se você gostou, deixe uma ⭐ no repositório!
-
-Isso ajuda muito 🙌
+* 👉 Deixe uma ⭐
+* 👉 Compartilhe
+* 👉 Sugira melhorias
